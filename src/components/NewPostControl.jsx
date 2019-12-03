@@ -13,11 +13,9 @@ class NewPostControl extends React.Component {
   }
   render(){
     let currentlyVisibleContent = null;
-    if (this.state.formVisibleOnPage){
+
       currentlyVisibleContent = <NewPostForm onNewPostCreation={this.props.onNewPostCreation}/>;
-    } else {
-      alert('alert');
-    }
+    
     return (
       <div>
         {currentlyVisibleContent}

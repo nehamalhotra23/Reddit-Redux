@@ -11,7 +11,6 @@ function PostList(props) {
         return <Post name={post.name}
           title={post.title}
           description={post.description}
-          timePost={post.timePost}
           key={postId}
           postId={postId}/>;
       })}

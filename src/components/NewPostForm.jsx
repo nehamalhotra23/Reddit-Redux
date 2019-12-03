@@ -1,5 +1,5 @@
 import React from 'react';
-import Moment from 'moment';
+// import Moment from 'moment';
 import { connect } from 'react-redux';
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
@@ -19,8 +19,6 @@ function NewPostForm(props){
       name: _name.value,
       title: _title.value,
       description: _description.value,
-      timePost: new Moment(),
-
     };
     dispatch(action);
     _name.value = '';

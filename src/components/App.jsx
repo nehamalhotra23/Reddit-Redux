@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Header from './Header';
 import PropTypes from 'prop-types';
 import {Switch, Route, withRouter} from 'react-router-dom';
 import NavBar from './NavBar';
@@ -13,7 +14,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      postList: null
+      postList: {}
     };
     this.handleNewPost = this.handleNewPost.bind(this);
     this.handleUpVoteClick = this.handleUpVoteClick.bind(this);
@@ -40,8 +41,9 @@ class App extends React.Component {
     return(
       <div>
         <NavBar/>
+        <Header/>
         <Switch>
-          <Route exact path="/" render={()=><PostList postList={this.state.masterPostList}  onLike={this.handleUpVoteClick} onDisLike={this.handleDownVoteClick}/>}/>
+          <Route exact path="/" render={()=><PostList postList={this.state.postList}  onLike={this.handleUpVoteClick} onDisLike={this.handleDownVoteClick}/>}/>
           <Route path="/newpost" component={NewPostControl} />
           <Route component={Error404} />
         </Switch>
@@ -52,12 +54,12 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  masterPostList: PropTypes.object
+  postList: PropTypes.object
 };
 
 const mapStateToProps = state => {
   return {
-    masterPostList: state
+    postList: state
   };
 };
 
